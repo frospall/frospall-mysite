@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frospall | PC Checker</title>
+    <title>Frospall | PC Checker & Developer</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Boxicons for modern icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
     
@@ -19,15 +22,42 @@
     </div>
 
     <main class="container">
-        <div class="profile-card">
+        <div class="profile-card" id="profile-card">
             <h1>Frospall</h1>
-            <p class="description">PC Checker | Programmer</p>
+            
+            <div class="profile-badges">
+                <div class="badge-icon tooltip" data-tooltip="Developer"><i class='bx bx-code-alt'></i></div>
+                <div class="badge-icon tooltip" data-tooltip="Owner"><i class='bx bx-crown'></i></div>
+                <div class="badge-icon tooltip" data-tooltip="Administrator"><i class='bx bx-shield-quarter'></i></div>
+                <div class="badge-icon tooltip" data-tooltip="Staff"><i class='bx bx-user'></i></div>
+                <div class="badge-icon tooltip" data-tooltip="VIP"><i class='bx bx-star'></i></div>
+            </div>
+            
+            <p class="description">
+                <span id="typewriter"></span><span class="cursor-blink">|</span>
+            </p>
             
             <div class="links">
-                <a href="https://discord.gg/hazeac" target="_blank" class="link">Haze AC Discord</a>
-                <a href="https://discord.gg/ssbypass" target="_blank" class="link">SS Bypass Discord</a>
-                <a href="https://github.com/frospall" target="_blank" class="link">GitHub</a>
-                <a href="#" class="link">Instagram</a>
+                <a href="https://discord.gg/hazeac" target="_blank" class="link">
+                    <div class="link-content">
+                        <i class='bx bxl-discord-alt' ></i>
+                        <span>Haze AC Discord</span>
+                    </div>
+                    <div class="link-badge">Staff</div>
+                </a>
+                <a href="https://discord.gg/ssbypass" target="_blank" class="link">
+                    <div class="link-content">
+                        <i class='bx bxs-shield' ></i>
+                        <span>SS Bypass Discord</span>
+                    </div>
+                    <div class="link-badge">Staff</div>
+                </a>
+                <a href="https://github.com/frospall" target="_blank" class="link">
+                    <div class="link-content">
+                        <i class='bx bxl-github' ></i>
+                        <span>GitHub</span>
+                    </div>
+                </a>
             </div>
         </div>
     </main>
