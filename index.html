@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frospall | PC Checker & Developer</title>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <!-- Boxicons for modern icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
     <!-- Ultra Smooth Custom Cursor -->
     <div id="cursor-dot"></div>
     <div id="cursor-outline"></div>
@@ -46,7 +50,7 @@
         </div>
     </div>
 
-    <!-- Top Right Controls (Nav + Lang) -->
+    <!-- Top Right Controls -->
     <div class="top-controls">
         <nav class="navbar">
             <button class="nav-btn active" data-target="home-page" data-i18n="nav_profile">Profile</button>
@@ -58,42 +62,47 @@
 
     <!-- Main Content -->
     <main class="container">
-        
+
         <!-- Profile Page -->
         <div class="profile-card page-section active" id="home-page">
             <div class="card-inner">
                 <h1>Frospall</h1>
-                
+
                 <div class="profile-badges">
-                    <div class="badge-icon tooltip i18n-tooltip" data-tooltip-key="badge_dev"><i class='bx bx-code-alt'></i></div>
-                    <div class="badge-icon tooltip i18n-tooltip" data-tooltip-key="badge_owner"><i class='bx bx-crown'></i></div>
-                    <div class="badge-icon tooltip i18n-tooltip" data-tooltip-key="badge_admin"><i class='bx bx-shield-quarter'></i></div>
-                    <div class="badge-icon tooltip i18n-tooltip" data-tooltip-key="badge_staff"><i class='bx bx-user'></i></div>
-                    <div class="badge-icon tooltip i18n-tooltip" data-tooltip-key="badge_vip"><i class='bx bx-star'></i></div>
+                    <div class="badge-icon tooltip i18n-tooltip" data-tooltip-key="badge_dev"><i
+                            class='bx bx-code-alt'></i></div>
+                    <div class="badge-icon tooltip i18n-tooltip" data-tooltip-key="badge_owner"><i
+                            class='bx bx-crown'></i></div>
+                    <div class="badge-icon tooltip i18n-tooltip" data-tooltip-key="badge_admin"><i
+                            class='bx bx-shield-quarter'></i></div>
+                    <div class="badge-icon tooltip i18n-tooltip" data-tooltip-key="badge_staff"><i
+                            class='bx bx-user'></i></div>
+                    <div class="badge-icon tooltip i18n-tooltip" data-tooltip-key="badge_vip"><i class='bx bx-star'></i>
+                    </div>
                 </div>
-                
+
                 <p class="description">
                     <span id="typewriter"></span><span class="cursor-blink">|</span>
                 </p>
-                
+
                 <div class="links">
                     <a href="https://discord.gg/hazeac" target="_blank" class="link">
                         <div class="link-content">
-                            <i class='bx bxl-discord-alt' ></i>
+                            <i class='bx bxl-discord-alt'></i>
                             <span>Haze AC Discord</span>
                         </div>
                         <div class="link-badge" data-i18n="tag_staff">Staff</div>
                     </a>
                     <a href="https://discord.gg/ssbypass" target="_blank" class="link">
                         <div class="link-content">
-                            <i class='bx bxs-shield' ></i>
+                            <i class='bx bxs-shield'></i>
                             <span>SS Bypass Discord</span>
                         </div>
                         <div class="link-badge" data-i18n="tag_staff">Staff</div>
                     </a>
                     <a href="https://github.com/frospall" target="_blank" class="link">
                         <div class="link-content">
-                            <i class='bx bxl-github' ></i>
+                            <i class='bx bxl-github'></i>
                             <span>GitHub</span>
                         </div>
                     </a>
@@ -105,47 +114,49 @@
         <div class="profile-card page-section" id="contact-page">
             <div class="card-inner">
                 <h1 data-i18n="contact_title">Contact Info</h1>
-                
+
                 <div class="contact-details">
                     <div class="contact-item">
-                        <i class='bx bx-envelope' ></i>
+                        <i class='bx bx-envelope'></i>
                         <div class="contact-text">
                             <span class="label">MAIL</span>
                             <span class="value">Frospall@hotmail.com</span>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <i class='bx bxl-discord-alt' ></i>
+                        <i class='bx bxl-discord-alt'></i>
                         <div class="contact-text">
                             <span class="label" data-i18n="contact_discord_user">DISCORD USER</span>
                             <span class="value">frospall</span>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <i class='bx bx-id-card' ></i>
+                        <i class='bx bx-id-card'></i>
                         <div class="contact-text">
                             <span class="label">DISCORD ID</span>
                             <span class="value">1396553784238411776</span>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <i class='bx bxl-github' ></i>
+                        <i class='bx bxl-github'></i>
                         <div class="contact-text">
                             <span class="label">GITHUB</span>
-                            <a href="https://github.com/frospall" target="_blank" class="value link-inline">github.com/frospall</a>
+                            <a href="https://github.com/frospall" target="_blank"
+                                class="value link-inline">github.com/frospall</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Hire Me Page (Expanded Skills) -->
+        <!-- Hire Me Page  -->
         <div class="profile-card page-section" id="hire-page">
             <div class="card-inner">
                 <h1 data-i18n="hire_title">Why Hire Me?</h1>
-                
+
                 <p class="description" style="margin-bottom: 25px;" data-i18n="hire_desc">
-                    I am highly professional with extensive experience in building robust applications, scripts, and front-end experiences.
+                    I am highly professional with extensive experience in building robust applications, scripts, and
+                    front-end experiences.
                 </p>
 
                 <div class="skills-container">
@@ -166,4 +177,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
