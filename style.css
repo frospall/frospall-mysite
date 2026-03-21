@@ -1,4 +1,6 @@
-/* --- SHARP PREMIUM B&W STYLE --- */
+/* ========================================================= */
+/* [FROSPALL VIP] SHARP PREMIUM B&W STYLE                    */
+/* ========================================================= */
 :root {
     --bg-color: #000000;
     --card-bg: #050505;
@@ -12,7 +14,7 @@
     --mouse-y: 50vh;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; cursor: none !important; }
+* { margin: 0; padding: 0; box-sizing: border-box; cursor: none !important; -webkit-user-drag: none; }
 
 body {
     font-family: var(--font-heading); background: var(--bg-color); color: var(--text-main);
@@ -21,7 +23,7 @@ body {
     -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
 }
 
-/* Remove Noise & Vignette if they still exist in HTML */
+/* Remove Noise  -*/
 #noise, .vignette { display: none; }
 
 /* Subtle Mouse Glow (Cleaner) */
@@ -84,7 +86,7 @@ body {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000;
     z-index: 10000; display: flex; justify-content: center; align-items: center;
     color: #fff; font-family: var(--font-mono); font-size: 1rem; letter-spacing: 5px;
-    text-transform: uppercase; transition: opacity 1s, visibility 1s;
+    text-transform: uppercase; transition: opacity 3s, visibility 3s;
 }
 .pulse-text { animation: pulseText 2s infinite ease-in-out; }
 @keyframes pulseText { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; text-shadow: 0 0 10px rgba(255,255,255,0.5); } }
@@ -143,25 +145,31 @@ body {
     transform: translate3d(0, 0, 0) scale(1);
 }
 
-/* --- THE SHARP PROFILE CARD --- */
+/* --- PROFILE CARD --- */
 .profile-card {
-    background: var(--card-bg); padding: 45px 40px; border-radius: 16px;
-    text-align: center; border: 1px solid var(--card-border);
-    box-shadow: 0 20px 50px rgba(0,0,0,1);
-    transform-style: preserve-3d; margin: 0 auto; width: 100%;
-    will-change: transform; transition: border-color 0.4s;
+    background: rgba(5, 5, 5, 0.4); 
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    padding: 45px 40px; border-radius: 16px;
+    text-align: center; border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(255,255,255,0.02);
+    margin: 0 auto; width: 100%;
+    transition: box-shadow 0.6s ease, border-color 0.4s;
 }
-.profile-card:hover { border-color: #444; }
-.card-inner { transform: translateZ(20px); transform-style: preserve-3d; }
+
+.profile-card:hover { 
+    border-color: rgba(255,255,255,0.15); 
+    box-shadow: 0 40px 80px rgba(0,0,0,0.99), inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.card-inner { z-index: 2; position: relative; }
 
 h1 {
     font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 15px;
     text-transform: uppercase; color: #fff;
-    transform: translateZ(30px); 
 }
 
 /* Badges */
-.profile-badges { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; transform: translateZ(25px); }
+.profile-badges { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; }
 .badge-icon {
     width: 36px; height: 36px; background: #0a0a0a;
     border: 1px solid #222; border-radius: 8px;
@@ -173,13 +181,13 @@ h1 {
 /* Description */
 .description {
     font-family: var(--font-mono); font-size: 0.9rem; color: #aaa;
-    margin-bottom: 35px; min-height: 45px; line-height: 1.6; transform: translateZ(20px);
+    margin-bottom: 35px; min-height: 45px; line-height: 1.6;
 }
 .cursor-blink { animation: blink 1s step-end infinite; color: var(--accent); }
 @keyframes blink { 50% { opacity: 0; } }
 
 /* Links */
-.links { display: flex; flex-direction: column; gap: 12px; transform: translateZ(20px); }
+.links { display: flex; flex-direction: column; gap: 12px; }
 .link {
     display: flex; align-items: center; justify-content: space-between;
     background: transparent; color: var(--text-main); text-decoration: none;
@@ -200,8 +208,16 @@ h1 {
 .link:hover i, .link:hover span { color: #000; }
 .link:hover .link-badge { background: #000; color: #fff; border-color: #000; }
 
+.link-badge.special {
+    background: #fff; color: #000; border: 1px solid #fff; font-weight: 700;
+    box-shadow: 0 0 10px rgba(255,255,255,0.3); letter-spacing: 1.5px;
+}
+.link:hover .link-badge.special {
+    background: #000; color: #fff; border-color: #000; box-shadow: none;
+}
+
 /* Contact Items */
-.contact-details { display: flex; flex-direction: column; gap: 14px; text-align: left; transform: translateZ(20px); margin-top: 10px; }
+.contact-details { display: flex; flex-direction: column; gap: 14px; text-align: left; margin-top: 10px; }
 .contact-item {
     display: flex; align-items: center; gap: 18px; background: transparent;
     padding: 16px; border-radius: 12px; border: 1px solid #222; transition: all 0.3s ease;
@@ -217,7 +233,7 @@ h1 {
 .link-inline { color: #fff; text-decoration: none; border-bottom: 1px solid #333; transition: all 0.3s; }
 
 /* Skills */
-.skills-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; transform: translateZ(20px); margin-top: 20px; }
+.skills-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 20px; }
 .skill-badge {
     background: transparent; border: 1px solid #333;
     padding: 10px 16px; border-radius: 8px; font-family: var(--font-mono); 

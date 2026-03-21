@@ -1,4 +1,8 @@
-// --- LERP UTILITY FOR BUTTERY SMOOTHNESS ---
+// =========================================================
+// [FROSPALL VIP] - SECURE CORE SCRIPT
+// =========================================================
+
+// --- LERP UTILITY FOR SMOOTHNESS ---
 function lerp(start, end, factor) {
     return start + (end - start) * factor;
 }
@@ -24,58 +28,17 @@ window.addEventListener('mousemove', (e) => {
     document.documentElement.style.setProperty('--mouse-y', `${mouseY}px`);
 });
 
-// Interactive 3D Card State
-const cards = document.querySelectorAll('.profile-card');
-let targetRotateX = 0, targetRotateY = 0;
-let currentRotateX = 0, currentRotateY = 0;
-let isHoveringCard = false;
-
-cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        isHoveringCard = true;
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left; 
-        const y = e.clientY - rect.top;  
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        targetRotateX = ((y - centerY) / centerY) * -8; // Premium soft tilt
-        targetRotateY = ((x - centerX) / centerX) * 8;
-    });
-
-    card.addEventListener('mouseleave', () => {
-        isHoveringCard = false;
-        targetRotateX = 0;
-        targetRotateY = 0;
-    });
-});
-
 // Main Animation Loop
 function animate() {
-    // 1. Smooth Cursor via Lerp
-    dotX = lerp(dotX, mouseX, 0.35); // Fast lerp for dot
-    outlineX = lerp(outlineX, mouseX, 0.12); // Smooth lerp for outline
-    dotY = lerp(dotY, mouseY, 0.35);
-    outlineY = lerp(outlineY, mouseY, 0.12);
+    // 1. Instant Cursor (Removed artificial lag)
+    dotX = mouseX;
+    dotY = mouseY;
+    outlineX = lerp(outlineX, mouseX, 0.35); // Snappier outline follow
+    outlineY = lerp(outlineY, mouseY, 0.35);
     
     // Translate3d handles sub-pixel rendering and GPU acceleration
     cursorDot.style.transform = `translate3d(calc(${dotX}px - 50%), calc(${dotY}px - 50%), 0)`;
     cursorOutline.style.transform = `translate3d(calc(${outlineX}px - 50%), calc(${outlineY}px - 50%), 0)`;
-
-    // 2. Smooth 3D Card Tilt via Lerp
-    currentRotateX = lerp(currentRotateX, targetRotateX, 0.08); // Ultra smooth interpolation
-    currentRotateY = lerp(currentRotateY, targetRotateY, 0.08);
-    
-    cards.forEach(card => {
-        if(card.classList.contains('active')) {
-            if(Math.abs(currentRotateX) > 0.01 || Math.abs(currentRotateY) > 0.01 || isHoveringCard) {
-                const scale = isHoveringCard ? 1.015 : 1;
-                card.style.transform = `perspective(2000px) rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg) scale3d(${scale}, ${scale}, ${scale})`;
-            } else {
-                card.style.transform = 'none'; // Clear transform on idle so text stays crisp
-            }
-        }
-    });
 
     requestAnimationFrame(animate);
 }
@@ -97,7 +60,10 @@ const translations = {
         nav_profile: "Profile",
         nav_contact: "Contact",
         nav_skills: "Skills",
+        nav_projects: "Projects",
+        projects_title: "Projects",
         tag_staff: "Staff",
+        tag_head_dev: "Head Developer",
         contact_title: "Contact Info",
         contact_discord_user: "DISCORD USER",
         hire_title: "Why Hire Me?",
@@ -115,7 +81,10 @@ const translations = {
         nav_profile: "Profil",
         nav_contact: "İletişim",
         nav_skills: "Yetenekler",
+        nav_projects: "Projeler",
+        projects_title: "Projeler",
         tag_staff: "Yetkili",
+        tag_head_dev: "Head Developer",
         contact_title: "İletişim Bilgileri",
         contact_discord_user: "DİSCORD KULLANICI",
         hire_title: "Neden Ben?",
@@ -174,12 +143,13 @@ let isPlaying = false;
 
 enterOverlay.addEventListener('click', () => {
     enterOverlay.style.opacity = '0';
-    setTimeout(() => { enterOverlay.style.visibility = 'hidden'; }, 1500);
+    enterOverlay.style.pointerEvents = 'none'; // FIX: Instant interaction capability while fading
+    setTimeout(() => { enterOverlay.style.visibility = 'hidden'; }, 3000);
     
     setTimeout(() => {
         musicController.classList.add('visible');
         topControls.classList.add('visible');
-    }, 600);
+    }, 1500);
 
     bgMusic.volume = volumeSlider.value;
     bgMusic.play().then(() => {
@@ -188,7 +158,7 @@ enterOverlay.addEventListener('click', () => {
         document.body.classList.add('playing-pulse');
     }).catch(e => console.log("Audio autoplay prevented"));
 
-    setTimeout(type, 1000);
+    setTimeout(type, 2500);
 });
 
 playPauseBtn.addEventListener('click', () => {
@@ -252,12 +222,24 @@ navButtons.forEach(btn => {
         pages.forEach(page => {
             if (page.id === targetId) {
                 page.classList.add('active');
-                // Reset card tilt parameters instantly for a clean entrance
-                currentRotateX = 0; currentRotateY = 0;
-                targetRotateX = 0; targetRotateY = 0;
             } else {
                 page.classList.remove('active');
             }
         });
     });
+});
+
+// =========================================================
+// [FRONTEND SECURITY WALL] 
+// Anti-Inspect / Anti-Drag / Anti-Right Click System
+// =========================================================
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+document.addEventListener('keydown', e => {
+    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    if (e.key === 'F12' || 
+       (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || 
+       (e.ctrlKey && e.key === 'U')) {
+        e.preventDefault();
+    }
 });

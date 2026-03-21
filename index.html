@@ -16,13 +16,15 @@
 
 <body>
 
-    <!-- Ultra Smooth Custom Cursor -->
+    <!-- ============================================== -->
+    <!-- [UI ELEMENTS] CUSTOM CURSOR                    -->
+    <!-- ============================================== -->
     <div id="cursor-dot"></div>
     <div id="cursor-outline"></div>
 
-    <!-- Clean Background Elements -->
-
-    <!-- Background VFX & Stars -->
+    <!-- ============================================== -->
+    <!-- [BACKGROUND] VFX & STARFIELD                   -->
+    <!-- ============================================== -->
     <div id="vfx-bg"></div>
     <div class="stars-container">
         <div id="stars"></div>
@@ -30,14 +32,18 @@
         <div id="stars3"></div>
     </div>
 
-    <!-- Entrance Overlay -->
+    <!-- ============================================== -->
+    <!-- [OVERLAY] INITIAL ENTRANCE SCREEN              -->
+    <!-- ============================================== -->
     <div id="enter-overlay">
         <div class="enter-content">
             <span data-i18n="click_enter" class="pulse-text">Click anywhere to enter</span>
         </div>
     </div>
 
-    <!-- Audio Player -->
+    <!-- ============================================== -->
+    <!-- [MEDIA] BACKGROUND AUDIO & CONTROLS            -->
+    <!-- ============================================== -->
     <audio id="bg-music" loop>
         <source src="song.mp3" type="audio/mpeg">
     </audio>
@@ -50,17 +56,22 @@
         </div>
     </div>
 
-    <!-- Top Right Controls -->
+    <!-- ============================================== -->
+    <!-- [NAVIGATION] TOP CONTROLS & TABS               -->
+    <!-- ============================================== -->
     <div class="top-controls">
         <nav class="navbar">
             <button class="nav-btn active" data-target="home-page" data-i18n="nav_profile">Profile</button>
             <button class="nav-btn" data-target="contact-page" data-i18n="nav_contact">Contact</button>
             <button class="nav-btn" data-target="hire-page" data-i18n="nav_skills">Skills</button>
+            <button class="nav-btn" data-target="projects-page" data-i18n="nav_projects">Projects</button>
         </nav>
         <button id="lang-toggle" class="lang-btn">TR</button>
     </div>
 
-    <!-- Main Content -->
+    <!-- ============================================== -->
+    <!-- [LAYOUT] MAIN CONTENT CONTAINERS               -->
+    <!-- ============================================== -->
     <main class="container">
 
         <!-- Profile Page -->
@@ -86,6 +97,13 @@
                 </p>
 
                 <div class="links">
+                    <a href="https://discord.gg/tVHpCHnPcc" target="_blank" class="link">
+                        <div class="link-content">
+                            <i class='bx bxl-discord-alt'></i>
+                            <span>Development Discord</span>
+                        </div>
+                        <div class="link-badge special" data-i18n="tag_head_dev">Head Developer</div>
+                    </a>
                     <a href="https://discord.gg/hazeac" target="_blank" class="link">
                         <div class="link-content">
                             <i class='bx bxl-discord-alt'></i>
@@ -169,6 +187,39 @@
                     <div class="skill-badge"><i class='bx bxl-discord-alt'></i> Discord.js</div>
                     <div class="skill-badge"><i class='bx bx-data'></i> MongoDB</div>
                     <div class="skill-badge"><i class='bx bx-code'></i> Luau</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Page -->
+        <div class="profile-card page-section" id="projects-page">
+            <div class="card-inner">
+                <h1 data-i18n="projects_title">Projects</h1>
+
+                <div class="contact-details project-list">
+                    <a href="https://frospall.github.io/respect-everyone/" target="_blank" class="contact-item" style="text-decoration: none;">
+                        <i class='bx bx-world'></i>
+                        <div class="contact-text">
+                            <span class="value" style="font-size: 1.1rem; margin-bottom: 4px;">Respect Everyone</span>
+                            <span class="label" style="text-transform: none; line-height: 1.4; white-space: normal; letter-spacing: normal;">An site for everyone that likes to be respected, Show respect to everyone please.</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://frospall.github.io/cybersecurity-info/" target="_blank" class="contact-item" style="text-decoration: none;">
+                        <i class='bx bx-shield-quarter'></i>
+                        <div class="contact-text">
+                            <span class="value" style="font-size: 1.1rem; margin-bottom: 4px;">Cybersecurity Info</span>
+                            <span class="label" style="text-transform: none; line-height: 1.4; white-space: normal; letter-spacing: normal;">Never trust everyone on the internet. Your data is your most valuable asset. Stay vigilant and question everything.</span>
+                        </div>
+                    </a>
+
+                    <a href="https://youtu.be/zZ-1MsAc0aU" target="_blank" class="contact-item" style="text-decoration: none;">
+                        <i class='bx bxl-youtube'></i>
+                        <div class="contact-text">
+                            <span class="value" style="font-size: 1.1rem; margin-bottom: 4px;">Basic StaffPanel</span>
+                            <span class="label" style="text-transform: none; line-height: 1.4; white-space: normal; letter-spacing: normal;">Basic StaffPanel for roblox games, I can adjust the settings and add custom functions for you.</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
